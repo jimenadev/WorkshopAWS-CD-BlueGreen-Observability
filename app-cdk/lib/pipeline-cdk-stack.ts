@@ -118,7 +118,17 @@ export class PipelineCdkStack  extends cdk.Stack {
       ],
     });
 
-
+    pipeline.addStage({
+      stageName: 'Code-Quality-Testing',
+      actions: [
+        new codepipeline_actions.CodeBuildAction({
+          actionName: 'Unit-Test',
+          project: codeBuild,
+          input: sourceOutput,
+          outputs: [unitTestOutput],
+        }),
+      ],
+    });
 
     pipeline.addStage({
       stageName: 'Docker-Push-ECR',
@@ -132,17 +142,7 @@ export class PipelineCdkStack  extends cdk.Stack {
       ],
     });
 
-    pipeline.addStage({
-      stageName: 'Code-Quality-Testing',
-      actions: [
-        new codepipeline_actions.CodeBuildAction({
-          actionName: 'Unit-Test',
-          project: codeBuild,
-          input: sourceOutput,
-          outputs: [unitTestOutput],
-        }),
-      ],
-    });
+
 
     pipeline.addStage({
       stageName: 'Deploy-Test',
