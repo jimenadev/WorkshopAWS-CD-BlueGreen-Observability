@@ -7,6 +7,6 @@ export class EcrCdkStack extends Stack {
 
   constructor(scope: Construct, id: string, props: StackProps) {
     super(scope, id, props);
-    this.repository = new ecr.Repository(this, 'my_app');
+    this.repository = new ecr.Repository(this, 'my-app');
   }
 }
