@@ -107,7 +107,7 @@ export class PipelineCdkStack  extends cdk.Stack {
         new codepipeline_actions.GitHubSourceAction({
           actionName: 'GitHub_Source',
           owner: 'jimenadev',
-          repo: 'Workshop-CICD-AWS',
+          repo: 'WorkshopAWS-CD-BlueGreen-Observability',
           branch: 'main',
           oauthToken: githubSecret, // AWS maneja la creación del Webhook
           output: sourceOutput,
