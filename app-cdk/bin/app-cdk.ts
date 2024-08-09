@@ -15,4 +15,5 @@ const testCdkStack = new AppCdkStack(app, 'test', {
 
 const pipelineCdkStack = new PipelineCdkStack(app, 'pipeline-Workshop-CICD-AWS', {
   ecrRepository: ecrCdkStack.repository,
+  fargateServiceTest: testCdkStack.fargateService,
 });
